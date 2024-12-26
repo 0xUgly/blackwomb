@@ -1,45 +1,46 @@
-import { Tabs } from 'expo-router';
+// app/_layout.tsx
 import React from 'react';
-import { Platform } from 'react-native';
+import { Drawer } from 'expo-router/drawer';
+import { User } from 'lucide-react-native';
+import AppHeader from '@/components/ui/AppHeader';
+import CustomDrawerContent from '@/components/ui/CustomDrawerContent';
+import { AuthProvider } from '@/context/AuthContext';
+import { CartProvider } from '@/context/CartContext';
 
-import { HapticTab } from '@/components/HapticTab';
-import { IconSymbol } from '@/components/ui/IconSymbol';
-import TabBarBackground from '@/components/ui/TabBarBackground';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
-
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
+export default function Layout() {
   return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-        tabBarButton: HapticTab,
-        tabBarBackground: TabBarBackground,
-        tabBarStyle: Platform.select({
-          ios: {
-            // Use a transparent background on iOS to show the blur effect
-            position: 'absolute',
-          },
-          default: {},
-        }),
-      }}>
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="explore"
-        options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
-        }}
-      />
-    </Tabs>
+    <AuthProvider>
+      <CartProvider>
+        <Drawer
+          screenOptions={{
+            header: () => <AppHeader />,
+            drawerStyle: {
+              width: '75%',
+            },
+          }}
+          drawerContent={(props) => <CustomDrawerContent {...props} />}
+        >
+          <Drawer.Screen
+            name="index"
+            options={{
+              title: 'Home',
+            }}
+          />
+          <Drawer.Screen
+            name="profile"
+            options={{
+              title: 'My Profile',
+              drawerIcon: ({ color }) => <User size={20} color={color} />
+            }}
+          />
+          <Drawer.Screen
+            name="cart"
+            options={{
+              title: 'Cart'
+            }}
+          />
+        </Drawer>
+      </CartProvider>
+    </AuthProvider>
   );
 }
