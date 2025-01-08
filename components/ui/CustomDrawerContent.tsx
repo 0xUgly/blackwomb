@@ -132,10 +132,7 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   signInButton: {
-    backgroundColor: '#BBA7FF',
     paddingVertical: 8,
-    paddingHorizontal: 16,
-    borderRadius: 8,
   },
   signUpButton: {
     backgroundColor: '#BBA7FF',
@@ -144,10 +141,9 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   signInText: {
-    color: 'white',
+    color: '#4B5563',
     fontSize: 16,
     fontWeight: '500',
-    textAlign: 'center',
   },
   signUpText: {
     color: 'white',

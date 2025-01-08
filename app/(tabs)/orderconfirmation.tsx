@@ -101,7 +101,7 @@ export default function OrderConfirmationScreen() {
      <SafeAreaView style={styles.container}>
        <View style={styles.centerContent}>
          <Text style={styles.errorText}>{error}</Text>
-         <TouchableOpacity style={styles.button} onPress={() => router.push('/index')}>
+         <TouchableOpacity style={styles.button} onPress={() => router.push('/')}>
            <Text style={styles.buttonText}>Return to Home</Text>
          </TouchableOpacity>
        </View>
@@ -114,7 +114,7 @@ export default function OrderConfirmationScreen() {
      <SafeAreaView style={styles.container}>
        <View style={styles.centerContent}>
          <Text>No order details found.</Text>
-         <TouchableOpacity style={styles.button} onPress={() => router.push('/index')}>
+         <TouchableOpacity style={styles.button} onPress={() => router.push('/')}>
            <Text style={styles.buttonText}>Return to Home</Text>
          </TouchableOpacity>
        </View>
@@ -160,7 +160,7 @@ export default function OrderConfirmationScreen() {
 
          <TouchableOpacity 
            style={styles.button}
-           onPress={() => router.push('/index')}
+           onPress={() => router.push('/')}
          >
            <Text style={styles.buttonText}>Continue Shopping</Text>
          </TouchableOpacity>

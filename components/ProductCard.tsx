@@ -13,7 +13,6 @@ import { useAuth } from '@/context/AuthContext';
 import { Product, ProductWithPrice } from '@/context/CartContext';
 import { AuthProvider } from '@/context/AuthContext';
 import { CartProvider } from '@/context/CartContext';
-import { ShoppingCart } from 'lucide-react-native';
 interface ProductCardProps {
   product: Product;
 }
@@ -124,7 +123,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             style={styles.addToCartButton}
             onPress={handleAddToCart}
           >
-            <Text style={styles.addToCartText}><ShoppingCart size={20}/></Text>
+            <Text style={styles.addToCartText}>Add to Cart</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
