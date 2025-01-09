@@ -76,12 +76,7 @@ export default function CustomDrawerContent(props:any) {
           >
             <Text style={styles.menuText}>Home</Text>
           </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.menuItem}
-            onPress={() => router.push('/deals')}
-          >
-            <Text style={styles.menuText}>Deals</Text>
-          </TouchableOpacity>
+         
           
 
           {user && (
